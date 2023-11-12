@@ -3,7 +3,8 @@ interface Props {
 	date: Date;
 }
 
-const { date } = Astro.props;
+const { date: maybeDate } = Astro.props;
+const date = maybeDate instanceof Date ? maybeDate : new Date(maybeDate)
 ---
 
 <time datetime={date.toISOString()}>
