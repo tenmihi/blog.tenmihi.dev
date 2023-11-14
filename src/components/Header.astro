@@ -1,6 +1,5 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, GITHUB_USER_NAME, TWITTER_USER_NAME } from '../consts';
 ---
 
 <header>
@@ -11,7 +10,7 @@ import { SITE_TITLE } from '../consts';
         <!-- <HeaderLink href="/dev-posts">DevPosts</HeaderLink> -->
       </div>
       <div class="social-links">
-        <a href="https://twitter.com/astrodotbuild" target="_blank">
+        <a href=`https://twitter.com/${TWITTER_USER_NAME}` target="_blank">
           <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
             ><path
               fill="currentColor"
@@ -19,7 +18,7 @@ import { SITE_TITLE } from '../consts';
             ></path></svg
           >
         </a>
-        <a href="https://github.com/withastro/astro" target="_blank">
+        <a href=`https://github.com/${GITHUB_USER_NAME}` target="_blank">
           <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
             ><path
               fill="currentColor"
@@ -41,6 +40,7 @@ import { SITE_TITLE } from '../consts';
 	h2 {
 		margin: 0;
 		font-size: 1.5em;
+    font-weight: 600;
 	}
 
 	h2 a,
