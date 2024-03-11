@@ -33,10 +33,9 @@ import { SITE_TITLE, GITHUB_USER_NAME, TWITTER_USER_NAME } from '../consts';
     <hr>
   </div>
 </header>
-<style>
-	header {
-		padding: 0 1em;
-	}
+<style lang="scss">
+  @use '../styles/breakpoint' as breakpoint;
+
 	h2 {
 		margin: 0;
 		font-size: 1.5em;
@@ -51,9 +50,15 @@ import { SITE_TITLE, GITHUB_USER_NAME, TWITTER_USER_NAME } from '../consts';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+    padding: 0 2em;
+    margin: 1em 0;
+
+    @include breakpoint.md() {
+      margin: 0;
+    }
 	}
 	nav a {
-		padding: 1em 0.5em;
+		padding: 1em 0;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
@@ -67,6 +72,10 @@ import { SITE_TITLE, GITHUB_USER_NAME, TWITTER_USER_NAME } from '../consts';
     display: flex;
   }
 
+  .social-links {
+    gap: 1em;
+  }
+
 	.social-links,
 	.social-links a {
 		display: flex;
@@ -77,11 +86,13 @@ import { SITE_TITLE, GITHUB_USER_NAME, TWITTER_USER_NAME } from '../consts';
     align-items: center;
   }
 
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+  .social-links {
+    display: none;
+
+    @include breakpoint.md() {
+      display: flex;
+    }
+  }
 
   hr {
     margin: 0;

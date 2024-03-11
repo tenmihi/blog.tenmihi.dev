@@ -42,6 +42,10 @@ const posts = (await getCollection('dev-posts')).sort(
 </html>
 
 <style>
+  ul {
+    padding: 1.5em 2em 0;
+  }
+
   li {
     display: inline-block;
     list-style: none;
@@ -49,7 +53,7 @@ const posts = (await getCollection('dev-posts')).sort(
   }
 
   li a {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     text-decoration: none;
   }
 
