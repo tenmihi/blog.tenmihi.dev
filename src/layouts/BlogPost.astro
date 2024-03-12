@@ -12,43 +12,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-      .prose :global(img) {
-        width: 100%;
-      }
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
 
 	<body>
@@ -78,3 +41,65 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		</main>
 	</body>
 </html>
+
+<style lang="scss">
+  @use '../styles/breakpoint' as breakpoint;
+
+  .hero-image {
+    width: 100%;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: var(--box-shadow);
+    }
+  }
+  .prose {
+    width: 720px;
+    max-width: calc(100% - 2rem);
+    margin: auto;
+    padding: 1rem;
+    color: rgb(var(--gray-dark));
+
+    :global(img) {
+      display: block;
+      margin: 2em auto;
+      width: 90%;
+
+      @include breakpoint.md {
+        width: 70%;
+      }
+    }
+
+    :global(p, ul) {
+      margin: 1rem 0;
+    }
+
+    :global(ul) {
+      padding-left: 2rem;
+    }
+  }
+
+  .title {
+    margin-bottom: 1rem;
+    padding: 1em 0;
+    text-align: center;
+  }
+  .title h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.4;
+
+    @include breakpoint.md {
+      font-size: 1.4rem;
+    }
+  }
+  .date {
+    margin-bottom: 0.5rem;
+    color: rgb(var(--gray));
+  }
+  .last-updated-on {
+    font-style: italic;
+  }
+</style>
