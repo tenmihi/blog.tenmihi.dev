@@ -15,55 +15,26 @@ const posts = (await getCollection('dev-posts')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/dev-posts/${post.slug}/`}>
-									<p class="title">{post.data.title}</p>
-                  <span class="pub-date">
-										<FormattedDate date={post.data.pubDate} />
+	<body class="bg-white dark:bg-slate-800">
+    <Header />
+    <main>
+      <section>
+        <ul class="pt-6 px-8">
+          {
+            posts.map((post) => (
+              <li class="inline-block flex">
+                <a class="pb-6" href={`/dev-posts/${post.slug}/`}>
+                  <p class="text-xl text-slate-900 dark:text-white">{post.data.title}</p>
+                  <span class="text-sm text-slate-600 dark:text-slate-400">
+                    <FormattedDate date={post.data.pubDate} />
                   </span>
-									<p class="description">{post.data.description}</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
+                  <p class="text-base">{post.data.description}</p>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
 	</body>
 </html>
-
-<style>
-  ul {
-    padding: 1.5em 2em 0;
-  }
-
-  li {
-    display: inline-block;
-    list-style: none;
-    display: flex;
-  }
-
-  li a {
-    margin-bottom: 1.5em;
-    text-decoration: none;
-  }
-
-  .title {
-    font-size: 1.2em;
-  }
-
-  .pub-date {
-    font-size: 0.6em;
-  }
-
-  .description {
-    font-size: 0.8em;
-  }
-</style>

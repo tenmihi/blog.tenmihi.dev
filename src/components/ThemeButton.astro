@@ -1,0 +1,36 @@
+<div>
+  <select id="theme-change-selector">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+    <option value="system">System</option>
+  </select>
+</div>
+
+<script>
+  const setTheme = (theme) => {
+    themeChangeButton.querySelector(`option[value="${localStorage.theme || 'system'}"]`).selected = true
+  }
+
+  const themeChangeButton = document.querySelector('#theme-change-selector');
+  themeChangeButton?.addEventListener('change', (event) => {
+    localStorage.theme = event.target.value
+
+    switch (localStorage.theme) {
+      case 'light':
+        document.documentElement.classList.remove('dark')
+        break
+      case 'dark':
+        document.documentElement.classList.add('dark')
+        break
+      case 'system':
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+        break
+    }
+  })
+
+  setTheme()
+</script>
