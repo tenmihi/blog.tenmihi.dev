@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import ContentsWrap from '../components/ContentsWrap.astro';
 
 type Props = CollectionEntry<'dev-posts'>['data'];
 
@@ -21,9 +22,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				<div class="w-full">
 					{heroImage && <img class="block my-0 mx-auto rounded-xl shadow-md" width={1020} height={510} src={heroImage} alt="" />}
 				</div>
-				<div class="prose">
-					<div class="mb-4 py-4 text-center text-2xl text-slate-900 dark:text-white">
-						<div class="py-2 text-lg text-slate-800 dark:text-white">
+				<div class="content">
+					<div class="mb-4 py-4 text-center">
+						<div class="mb-2 text-lg text-slate-500 dark:text-white">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
@@ -33,9 +34,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 								)
 							}
 						</div>
-						<h1>{title}</h1>
+						<h1 class="text-2xl text-slate-900 dark:text-white">{title}</h1>
 					</div>
-					<slot />
+          <ContentsWrap>
+            <slot />
+          </ContentsWrap>
 				</div>
 			</article>
 		</main>
@@ -43,42 +46,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 </html>
 
 <style lang="scss">
-  @use '../styles/breakpoint' as breakpoint;
-  .prose {
+  .content {
     width: 720px;
     max-width: calc(100% - 2rem);
     margin: auto;
     padding: 1rem;
     color: rgb(var(--gray-dark));
-
-    :global(p, ul) {
-      margin: 1rem 0;
-    }
-
-    :global(ul) {
-      padding-left: 2rem;
-    }
-  }
-
-  .title {
-    margin-bottom: 1rem;
-    padding: 1rem 0;
-    text-align: center;
-  }
-  .title h1 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
-    line-height: 1.4;
-
-    @include breakpoint.md {
-      font-size: 1.4rem;
-    }
-  }
-  .date {
-    margin-bottom: 0.5rem;
-    color: rgb(var(--gray));
-  }
-  .last-updated-on {
-    font-style: italic;
   }
 </style>

@@ -1,0 +1,36 @@
+
+<div >
+  <slot />
+</div>
+
+<style lang="scss">
+  div {
+    :global(p) {
+      @apply my-4 text-slate-700
+    }
+
+    :global(li) {
+      @apply text-slate-700
+    }
+
+    :global(ul) {
+      @apply list-disc my-4 ml-8 text-slate-700
+    }
+
+    :global(img) {
+      @apply mx-auto my-8 w-3/4 md:w-5/6
+    }
+  }
+
+  :global(.dark) {
+    div {
+      :global(p) {
+        @apply text-white
+      }
+
+      :global(li) {
+        @apply text-white
+      }
+    }
+  }
+</style>

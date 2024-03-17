@@ -5,8 +5,9 @@ export default {
     screens: {
       md: '768px',
     },
-    extend: {},
+    extend: {
+    },
   },
-  darkMode: 'class',
+  darkMode: ['class'],
   plugins: [],
 }
