@@ -1,17 +1,18 @@
-<div>
+<div class="border-2 border-solid rounded-lg">
   <select id="theme-change-selector">
-    <option value="light">Light</option>
-    <option value="dark">Dark</option>
-    <option value="system">System</option>
+    <option value="light"><i class="fa-solid fa-sun"></i></option>
+    <option value="dark"><i class="fa-solid fa-moon"></i></option>
+    <option value="system"><i class="fa-solid fa-desktop"></i></option>
   </select>
 </div>
 
 <script>
-  const setTheme = (theme) => {
-    themeChangeButton.querySelector(`option[value="${theme}"]`).selected = true
+
+  const setTheme = (theme: string) => {
+    const elem = themeChangeButton.querySelector(`option[value="${theme}"]`).selected = true
   }
 
-  const changeTheme = (theme) => {
+  const changeTheme = (theme: string) => {
     switch (theme) {
       case 'light':
         document.documentElement.classList.remove('dark')
@@ -27,12 +28,11 @@
         }
         break
     }
+  const themeChangeButton = document.querySelector('#theme-change-selector');
+  themeChangeButton?.addEventListener('change', (event) => changeTheme(event.target.value))
 
     localStorage.theme = theme
   }
-
-  const themeChangeButton = document.querySelector('#theme-change-selector');
-  themeChangeButton?.addEventListener('change', (event) => changeTheme(event.target.value))
 
   const theme = localStorage.theme || 'system'
   setTheme(theme)
