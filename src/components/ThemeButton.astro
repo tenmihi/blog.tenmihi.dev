@@ -7,9 +7,12 @@
 </div>
 
 <script>
+  const themeChangeButton = document.querySelector('#theme-change-selector')
+  if (!themeChangeButton) return
 
   const setTheme = (theme: string) => {
-    const elem = themeChangeButton.querySelector(`option[value="${theme}"]`).selected = true
+    const elem = themeChangeButton.querySelector(`option[value="${theme}"]`) as HTMLOptionElement
+    elem.selected = true
   }
 
   const changeTheme = (theme: string) => {
@@ -28,8 +31,13 @@
         }
         break
     }
-  const themeChangeButton = document.querySelector('#theme-change-selector');
-  themeChangeButton?.addEventListener('change', (event) => changeTheme(event.target.value))
+  
+    themeChangeButton?.addEventListener('change', (event) => {
+      if (!(event.target instanceof HTMLSelectElement)) {
+        return
+      }
+      changeTheme(event.target.value)
+    })
 
     localStorage.theme = theme
   }
