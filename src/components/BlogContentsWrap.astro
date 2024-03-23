@@ -22,26 +22,26 @@
     }
 
     :global(h1) {
-      @apply text-3xl font-bold my-3
+      @apply text-3xl font-bold mt-7 mb-3
     }
 
     :global(h2) {
-      @apply text-2xl font-semibold my-3
+      @apply text-2xl font-semibold mt-5 mb-2
     }
 
     :global(h3) {
-      @apply text-xl my-3
+      @apply text-lg font-medium mt-4 mb-1
     }
 
     :global(h4) {
-      @apply text-lg my-3
+      @apply font-medium mt-3 mb-1
     }
   }
 
   :global(.dark) {
     div {
-      :global(p, li, h1, h2, h3, h4, ) {
-        @apply text-white
+      :global(p), :global(li), :global(h1), :global(h2), :global(h3), :global(h4) {
+        @apply text-slate-200
       }
     }
   }
