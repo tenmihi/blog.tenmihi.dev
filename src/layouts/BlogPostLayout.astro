@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import ContentsWrap from '../components/BlogContentsWrap.astro';
+
+type Props = CollectionEntry<'dev-posts'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article>
+    <div class="w-full">
+      {heroImage && <img class="block my-0 mx-auto rounded-xl shadow-md" width={1020} height={510} src={heroImage} alt="" />}
+    </div>
+    <div class="content">
+      <div class="my-8 text-center">
+        <h1 class="text-2xl text-slate-900 dark:text-white">{title}</h1>
+        <div class="mt-2 text-sm text-slate-500 dark:text-white">
+          Posted on <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <span>
+                / Last updated on <FormattedDate date={updatedDate} />
+              </span>
+            )
+          }
+        </div>
+      </div>
+      <ContentsWrap>
+        <slot />
+      </ContentsWrap>
+    </div>
+  </article>
+</BaseLayout>

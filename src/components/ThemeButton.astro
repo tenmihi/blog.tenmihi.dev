@@ -1,0 +1,48 @@
+<div class="border-2 border-solid rounded-lg">
+  <select id="theme-change-selector">
+    <option value="light"><i class="fa-solid fa-sun"></i></option>
+    <option value="dark"><i class="fa-solid fa-moon"></i></option>
+    <option value="system"><i class="fa-solid fa-desktop"></i></option>
+  </select>
+</div>
+
+<script>
+  const themeChangeButton = document.querySelector('#theme-change-selector')
+  if (!themeChangeButton) return
+
+  const setTheme = (theme: string) => {
+    const elem = themeChangeButton.querySelector(`option[value="${theme}"]`) as HTMLOptionElement
+    elem.selected = true
+  }
+
+  const changeTheme = (theme: string) => {
+    switch (theme) {
+      case 'light':
+        document.documentElement.classList.remove('dark')
+        break
+      case 'dark':
+        document.documentElement.classList.add('dark')
+        break
+      case 'system':
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+        break
+    }
+  
+    themeChangeButton?.addEventListener('change', (event) => {
+      if (!(event.target instanceof HTMLSelectElement)) {
+        return
+      }
+      changeTheme(event.target.value)
+    })
+
+    localStorage.theme = theme
+  }
+
+  const theme = localStorage.theme || 'system'
+  setTheme(theme)
+  changeTheme(theme)
+</script>

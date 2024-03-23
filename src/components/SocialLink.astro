@@ -1,0 +1,7 @@
+---
+const { brandName, url } = Astro.props
+---
+
+<a href={url} target="_blank" class:list={Astro.props.class}>
+  <i class=`fa-brands fa-${brandName} text-slate-900 dark:text-white`></i>
+</a>

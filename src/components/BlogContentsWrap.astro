@@ -1,0 +1,48 @@
+
+<div >
+  <slot />
+</div>
+
+<style lang="scss">
+  div {
+    :global(p) {
+      @apply my-4 text-slate-700 leading-6
+    }
+
+    :global(li) {
+      @apply my-2 text-slate-700
+    }
+
+    :global(ul) {
+      @apply list-disc ml-8 text-slate-700
+    }
+
+    :global(img) {
+      @apply mx-auto my-8 w-3/4 md:w-5/6
+    }
+
+    :global(h1) {
+      @apply text-3xl font-bold mt-7 mb-3
+    }
+
+    :global(h2) {
+      @apply text-2xl font-semibold mt-5 mb-2
+    }
+
+    :global(h3) {
+      @apply text-lg font-medium mt-4 mb-1
+    }
+
+    :global(h4) {
+      @apply font-medium mt-3 mb-1
+    }
+  }
+
+  :global(.dark) {
+    div {
+      :global(p), :global(li), :global(h1), :global(h2), :global(h3), :global(h4) {
+        @apply text-slate-200
+      }
+    }
+  }
+</style>
