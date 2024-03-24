@@ -11,6 +11,11 @@ export default defineConfig({
   site: 'https://example.com',
   integrations: [mdx(), sitemap(), tailwind()],
   markdown: {
-    rehypePlugins: [() => rehypeCaptionForImg({ removeTitle: true })]
+    rehypePlugins: [() => rehypeCaptionForImg({ removeTitle: true })],
+    remarkRehype: {
+      footnoteLabel: ' ',
+      footnoteLabelProperties: { className: [''] },
+      footnoteLabelTagName: 'hr',
+    },
   }
 });
