@@ -11,12 +11,12 @@ const posts = (await getCollection('dev-posts')).sort(
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <section>
-    <ul class="mt-6">
+    <ul class="mt-6 flex flex-col gap-y-6">
       {
         posts.map((post) => (
-          <li class="inline-block flex">
+          <li class="inline-block">
             <a class="pb-6" href={`/dev-posts/${post.slug}/`}>
-              <p class="text-xl text-slate-900 dark:text-white">{post.data.title}</p>
+              <p class="text-lg text-slate-900 dark:text-white break-words">{post.data.title}</p>
               <span class="text-sm text-slate-600 dark:text-slate-400">
                 <FormattedDate date={post.data.pubDate} />
               </span>
