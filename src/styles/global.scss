@@ -9,3 +9,29 @@
 body {
 	font-family: 'NotoSans', sans-serif;
 }
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #121212;
+		color: #ffffff;
+	}
+
+	a {
+		color: #bb86fc; /* A light purple, often used in Material Design dark themes */
+	}
+
+	/* Add styles for other key elements as needed, for example: */
+	/*
+	button {
+		background-color: #333333;
+		color: #ffffff;
+		border: 1px solid #555555;
+	}
+
+	input, textarea, select {
+		background-color: #333333;
+		color: #ffffff;
+		border: 1px solid #555555;
+	}
+	*/
+}
