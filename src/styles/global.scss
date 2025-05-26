@@ -20,6 +20,29 @@ body {
 		color: #bb86fc; /* A light purple, often used in Material Design dark themes */
 	}
 
+	/* Styles for markdown content in dark mode */
+	.content p,
+	.content li,
+	.content ul,
+	.content ol,
+	.content h1,
+	.content h2,
+	.content h3,
+	.content h4,
+	.content h5,
+	.content h6,
+	.content blockquote,
+	.content strong,
+	.content em {
+		color: #E5E5E5;
+	}
+
+	.content pre,
+	.content code {
+		color: #E5E5E5;
+		/* Note: Backgrounds for pre/code might need separate adjustment if they have their own dark theme */
+	}
+
 	/* Add styles for other key elements as needed, for example: */
 	/*
 	button {

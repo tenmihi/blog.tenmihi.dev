@@ -17,7 +17,7 @@ const posts = (await getCollection('dev-posts')).sort(
           <li class="inline-block">
             <a class="pb-6" href={`/dev-posts/${post.slug}/`}>
               <p class="text-lg text-slate-900 dark:text-white break-words">{post.data.title}</p>
-              <span class="text-sm text-slate-600 dark:text-slate-400">
+              <span class="text-sm text-slate-600 dark:text-slate-200">
                 <FormattedDate date={post.data.pubDate} />
               </span>
               <p class="text-base">{post.data.description}</p>
